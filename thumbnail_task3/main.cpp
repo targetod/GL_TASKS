@@ -106,7 +106,7 @@ int main( int argc, char** argv )
 
 void batch_system(){
 
-    while(!is_exit()){
+    while(!is_exit()){ // bad!
         std::unique_lock<std::mutex> lock(tasks_mutex);
         if(tasks.empty()) continue;
         std::packaged_task<cv::Mat()> taskq = std::move(tasks.front());
